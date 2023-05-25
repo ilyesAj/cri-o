@@ -51,7 +51,7 @@ require (
 	github.com/onsi/ginkgo/v2 v2.9.5
 	github.com/onsi/gomega v1.27.6
 	github.com/opencontainers/go-digest v1.0.0
-	github.com/opencontainers/image-spec v1.1.0-rc2.0.20221005185240-3a7f492d3f1b
+	github.com/opencontainers/image-spec v1.1.0-rc3
 	github.com/opencontainers/runc v1.1.7
 	github.com/opencontainers/runtime-spec v1.1.0-rc.2
 	github.com/opencontainers/runtime-tools v0.9.1-0.20230317050512-e931285f4b69
@@ -76,14 +76,14 @@ require (
 	google.golang.org/grpc v1.55.0
 	google.golang.org/protobuf v1.30.0
 	k8s.io/api v0.27.0
-	k8s.io/apimachinery v0.27.0
+	k8s.io/apimachinery v0.27.1
 	k8s.io/apiserver v0.27.0
 	k8s.io/client-go v0.27.0
 	k8s.io/cri-api v0.27.1
 	k8s.io/klog/v2 v2.100.1
 	k8s.io/kubernetes v1.27.0
 	k8s.io/utils v0.0.0-20230406110748-d93618cff8a2
-	sigs.k8s.io/release-sdk v0.10.0
+	sigs.k8s.io/release-sdk v0.10.1
 	sigs.k8s.io/release-utils v0.7.4
 	sigs.k8s.io/yaml v1.3.0
 )
@@ -101,7 +101,7 @@ require (
 	github.com/cenkalti/backoff/v4 v4.2.1 // indirect
 	github.com/cespare/xxhash/v2 v2.2.0 // indirect
 	github.com/chzyer/readline v1.5.1 // indirect
-	github.com/cloudflare/circl v1.1.0 // indirect
+	github.com/cloudflare/circl v1.3.3 // indirect
 	github.com/containerd/console v1.0.3 // indirect
 	github.com/containerd/go-runc v1.0.0 // indirect
 	github.com/containerd/stargz-snapshotter/estargz v0.14.3 // indirect
@@ -113,7 +113,7 @@ require (
 	github.com/cyberphone/json-canonicalization v0.0.0-20220623050100-57a0ce2678a7 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/disiqueira/gotree/v3 v3.0.2 // indirect
-	github.com/docker/docker v23.0.4+incompatible // indirect
+	github.com/docker/docker v23.0.5+incompatible // indirect
 	github.com/docker/docker-credential-helpers v0.7.0 // indirect
 	github.com/docker/go-connections v0.4.1-0.20210727194412-58542c764a11 // indirect
 	github.com/docker/go-events v0.0.0-20190806004212-e31b211e4f1c // indirect
@@ -141,7 +141,7 @@ require (
 	github.com/golang/protobuf v1.5.3 // indirect
 	github.com/google/gnostic v0.5.7-v3refs // indirect
 	github.com/google/go-cmp v0.5.9 // indirect
-	github.com/google/go-containerregistry v0.14.0 // indirect
+	github.com/google/go-containerregistry v0.15.1 // indirect
 	github.com/google/go-intervals v0.0.2 // indirect
 	github.com/google/go-querystring v1.1.0 // indirect
 	github.com/google/gofuzz v1.2.0 // indirect
@@ -157,7 +157,7 @@ require (
 	github.com/jinzhu/copier v0.3.5 // indirect
 	github.com/josharian/intern v1.0.0 // indirect
 	github.com/kevinburke/ssh_config v1.2.0 // indirect
-	github.com/klauspost/compress v1.16.4 // indirect
+	github.com/klauspost/compress v1.16.5 // indirect
 	github.com/klauspost/pgzip v1.2.6-0.20220930104621-17e8dac29df8 // indirect
 	github.com/kr/fs v0.1.0 // indirect
 	github.com/letsencrypt/boulder v0.0.0-20230213213521-fdfea0d469b6 // indirect
@@ -224,7 +224,7 @@ require (
 	golang.org/x/crypto v0.8.0 // indirect
 	golang.org/x/exp v0.0.0-20230321023759-10a507213a29 // indirect
 	golang.org/x/mod v0.10.0 // indirect
-	golang.org/x/oauth2 v0.7.0 // indirect
+	golang.org/x/oauth2 v0.8.0 // indirect
 	golang.org/x/term v0.8.0 // indirect
 	golang.org/x/text v0.9.0 // indirect
 	golang.org/x/time v0.3.0 // indirect
