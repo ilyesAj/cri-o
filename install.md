@@ -120,7 +120,7 @@ yum install containernetworking-plugins
 
 Note: this tutorial assumes you have curl and gnupg installed
 
-To install on the following operating systems, set the environment variable $OS as the appropriate field in the following table:
+**To install on the following operating systems, set the environment variable `$OS as the appropriate field in the following table:**
 
 | Operating system | $OS               |
 | ---------------- | ----------------- |
@@ -139,23 +139,23 @@ To install on the following operating systems, set the environment variable $OS 
 If installing cri-o-runc (recommended), you'll need to install libseccomp >= 2.4.1. **NOTE: This is not available in distros based on Debian 10(buster) or below, so buster backports will need to be enabled:**
 
 ```shell
-echo 'deb http://deb.debian.org/debian buster-backports main' > /etc/apt/sources.list.d/backports.list
-apt update
-apt install -y -t buster-backports libseccomp2 || apt update -y -t buster-backports libseccomp2
+echo 'deb http://deb.debian.org/debian buster-backports main' | sudo tee /etc/apt/sources.list.d/backports.list
+sudo apt update
+sudo apt install -y -t buster-backports libseccomp2 || sudo apt update -y -t buster-backports libseccomp2
 ```
 
-And then run the following as root:
+And then run the following:
 
 ```shell
-echo "deb [signed-by=/usr/share/keyrings/libcontainers-archive-keyring.gpg] https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/$OS/ /" > /etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list
-echo "deb [signed-by=/usr/share/keyrings/libcontainers-crio-archive-keyring.gpg] https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable:/cri-o:/$VERSION/$OS/ /" > /etc/apt/sources.list.d/devel:kubic:libcontainers:stable:cri-o:$VERSION.list
+echo "deb [signed-by=/usr/share/keyrings/libcontainers-archive-keyring.gpg] https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/$OS/ /" | sudo tee /etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list
+echo "deb [signed-by=/usr/share/keyrings/libcontainers-crio-archive-keyring.gpg] https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable:/cri-o:/$VERSION/$OS/ /" | sudo tee /etc/apt/sources.list.d/devel:kubic:libcontainers:stable:cri-o:$VERSION.list
 
 mkdir -p /usr/share/keyrings
-curl -L https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/$OS/Release.key | gpg --dearmor -o /usr/share/keyrings/libcontainers-archive-keyring.gpg
-curl -L https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable:/cri-o:/$VERSION/$OS/Release.key | gpg --dearmor -o /usr/share/keyrings/libcontainers-crio-archive-keyring.gpg
+curl -L https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/$OS/Release.key | sudo gpg --dearmor -o /usr/share/keyrings/libcontainers-archive-keyring.gpg
+curl -L https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable:/cri-o:/$VERSION/$OS/Release.key | sudo gpg --dearmor -o /usr/share/keyrings/libcontainers-crio-archive-keyring.gpg
 
-apt-get update
-apt-get install cri-o cri-o-runc
+sudo apt-get update
+sudo apt-get install cri-o cri-o-runc
 ```
 
 **Note: We include cri-o-runc because Ubuntu and Debian include their own packaged version of runc.**
@@ -168,14 +168,26 @@ runtime_path = ""
 runtime_type = "oci"
 runtime_root = "/run/runc"
 ```
-
 to `/etc/crio/crio.conf.d/`
+
+you can run the folowing to insert the file:
+
+```shell
+sudo bash -c "cat > /etc/crio/crio.conf.d/config.toml << EOF
+
+[crio.runtime.runtimes.runc]
+runtime_path = ""
+runtime_type = "oci"
+runtime_root = "/run/runc"
+
+EOF"
+```
 
 Note: as of 1.24.0, the `cri-o` package no longer depends on `containernetworking-plugins` package.
 Removing this dependency allows users to install their own CNI plugins without having to remove files first.
 If users want to use the previously provided CNI plugins, they should also run:
 ```shell
-apt-get install containernetworking-plugins
+sudo apt-get install containernetworking-plugins
 ```
 
 ## Build and install CRI-O from source
