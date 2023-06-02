@@ -160,8 +160,7 @@ sudo apt-get install cri-o cri-o-runc
 
 **Note: We include cri-o-runc because Ubuntu and Debian include their own packaged version of runc.**
 While this version should work with CRI-O, keeping the packaged versions of CRI-O and runc in sync ensures they work together.
-If you'd like to use the distribution's runc, you'll have to add the file:
-
+**If you'd like to use the distribution's runc, you'll have to add the file:**
 ```toml
 [crio.runtime.runtimes.runc]
 runtime_path = ""
@@ -169,19 +168,6 @@ runtime_type = "oci"
 runtime_root = "/run/runc"
 ```
 to `/etc/crio/crio.conf.d/`
-
-you can run the folowing to insert the file:
-
-```shell
-sudo bash -c "cat > /etc/crio/crio.conf.d/config.toml << EOF
-
-[crio.runtime.runtimes.runc]
-runtime_path = ""
-runtime_type = "oci"
-runtime_root = "/run/runc"
-
-EOF"
-```
 
 Note: as of 1.24.0, the `cri-o` package no longer depends on `containernetworking-plugins` package.
 Removing this dependency allows users to install their own CNI plugins without having to remove files first.
